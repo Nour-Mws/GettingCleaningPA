@@ -77,9 +77,10 @@ data_labeled = data_labeled[,c(2:82)]
 ```
 
 ### Labelling data with descriptive variable names
-Here, I am using the same original features names obtained previously since these are the descriptions that were chosen by the original dataset providers.
+Here, I am using the same original features names obtained previously since these are the descriptions that were chosen by the original dataset providers. I am also using the "make.names" function that transforms a character string list into names that is legal in R. I also sat unique to true since I want the elements of the resulting list to be unique.
 
 ```{r}
+new_features = make.names(as.character(wanted_features[,2]), unique=T)
 names(data_labeled)=c("subjectID", as.character(wanted_features[,2]),"label")
 ```
 
