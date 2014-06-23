@@ -53,7 +53,7 @@ data_labeled = data_labeled[,c(2:82)]
 #function that transforms a character string list into names that is legal in R. 
 #I also sat unique to true since I want the elements of the resulting list to be unique.
 new_features = make.names(as.character(wanted_features[,2]), unique=T)
-names(data_labeled)=c("subjectID", as.character(wanted_features[,2]),"label")
+names(data_labeled)=c("subjectID", as.character(new_features[,2]),"label")
 
 #5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 new_data = aggregate(.~subjectID+label, data = data_labeled, mean)
